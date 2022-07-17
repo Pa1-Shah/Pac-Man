@@ -1,4 +1,3 @@
-
 #include <stdlib.h>
 #include <vector>
 #include <deque>
@@ -32,97 +31,95 @@ bool* keyStates = new bool[256]; // record of all keys pressed
 int points = 0; // total points collected
 int df = 10;
 
-void output(int x, int y,const char *str){
+void output(int x, int y, const char* str) {
 	int len, i;
-	glRasterPos2f(x,y);
-	len=(int) strlen(str);
-	for (i = 0; i < len; i++){
-		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,str[i]);
+	glRasterPos2f(x, y);
+	len = (int)strlen(str);
+	for (i = 0; i < len; i++) {
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, str[i]);
 	}
 }
 
-void drawstring(int x, int y,const char *str,void *font){
+void drawstring(int x, int y, const char* str, void* font) {
 	int len, i;
-	glRasterPos2f(x,y);
-	len=(int) strlen(str);
-	for (i = 0; i < len; i++){
-		glutBitmapCharacter(font,str[i]);
+	glRasterPos2f(x, y);
+	len = (int)strlen(str);
+	for (i = 0; i < len; i++) {
+		glutBitmapCharacter(font, str[i]);
 	}
 }
 
-void frontscreen(void){
-	 glClear(GL_COLOR_BUFFER_BIT);
-	 glLoadIdentity();
-	 glColor3f(1,1,1);
-	 drawstring(200,500," Press ENTER to go To next screen",GLUT_BITMAP_HELVETICA_18);
-	 //drawstring(-45,5,"Maximize window for better view",GLUT_BITMAP_HELVETICA_12);
-	 glColor3f(1,1,1);
-	 output(5,160,"");
-	 glColor3f(1,0,0);
-	 drawstring(320,50,"SJBIT",GLUT_BITMAP_TIMES_ROMAN_24);
-	 glColor3f(1,1,1);
-	 output(270,150,"DEPARTMENT OF ");
-	 output(120.0,200,"COMPUTER SCIENCE AND ENGINEERING");
-	 glColor3f(1,0,1);
-	 output(270,250,"A Mini Project On:-");
-	 glColor3f(0,1,0.5);
-	 output(260,300,"\"PACMAN GAME\"");
-	 glColor3f(1,0,1);
-	 output(40,100,"");
-	 //glBegin(GL_LINES);
-	 glVertex2f(40,98);
-	 glVertex2f(50,98);
-	 glEnd();
-	 glColor3f(1,0,0);
-	 output(40,90," ");
-	 output(40,80,"");
-	 glColor3f(1,0,1);
-	 output(40,60,"");
-	 //glBegin(GL_LINES);
-	 glVertex2f(40,58);
-	 glVertex2f(98,58);
-	 glEnd();
-	 glColor3f(1,0,0);
-	 output(40,50,"");
-	 glColor3f(1,0,0);
-	 drawstring(72,50,"",GLUT_BITMAP_HELVETICA_12);
-	 glColor3f(1,0,0);
-	 output(70,40,"");
-	 glColor3f(1,0,0);
-	 output(40,30,"");
-	 glColor3f(1,0,0);
-	 drawstring(72,30,"",GLUT_BITMAP_HELVETICA_12);
-	 output(70,20,"");
-	 glFlush();
-}
-
-void startscreen(){
+void frontscreen(void) {
 	glClear(GL_COLOR_BUFFER_BIT);
-	glClearColor(0.0,0.0,1.0,0.0);
-	glColor3f(0.0,1.0,0.0);
-	output(25,200,"WELCOME TO THE PACMAN GAME");
-	output(50,500,"3. QUIT");
-	output(50,400,"2. INSTRUCTIONS");
-	output(50,300,"1. NEW GAME");
+	glLoadIdentity();
+	glColor3f(1, 1, 1);
+	drawstring(200, 500, " Press ENTER to go To next screen", GLUT_BITMAP_HELVETICA_18);
+	//drawstring(-45,5,"Maximize window for better view",GLUT_BITMAP_HELVETICA_12);
+	glColor3f(1, 1, 1);
+	output(5, 160, "");
+	glColor3f(1, 0, 0);
+	drawstring(320, 50, "SJBIT", GLUT_BITMAP_TIMES_ROMAN_24);
+	glColor3f(1, 1, 1);
+	output(270, 150, "DEPARTMENT OF ");
+	output(120.0, 200, "COMPUTER SCIENCE AND ENGINEERING");
+	glColor3f(1, 0, 1);
+	output(270, 250, "A Mini Project On:-");
+	glColor3f(0, 1, 0.5);
+	output(260, 300, "\"PACMAN GAME\"");
+	glColor3f(1, 0, 1);
+	output(40, 100, "");
+	//glBegin(GL_LINES);
+	glVertex2f(40, 98);
+	glVertex2f(50, 98);
+	glEnd();
+	glColor3f(1, 0, 0);
+	output(40, 90, " ");
+	output(40, 80, "");
+	glColor3f(1, 0, 1);
+	output(40, 60, "");
+	//glBegin(GL_LINES);
+	glVertex2f(40, 58);
+	glVertex2f(98, 58);
+	glEnd();
+	glColor3f(1, 0, 0);
+	output(40, 50, "");
+	glColor3f(1, 0, 0);
+	drawstring(72, 50, "", GLUT_BITMAP_HELVETICA_12);
+	glColor3f(1, 0, 0);
+	output(70, 40, "");
+	glColor3f(1, 0, 0);
+	output(40, 30, "");
+	glColor3f(1, 0, 0);
+	drawstring(72, 30, "", GLUT_BITMAP_HELVETICA_12);
+	output(70, 20, "");
 	glFlush();
 }
 
-void instructions(){
+void startscreen() {
 	glClear(GL_COLOR_BUFFER_BIT);
-	glColor3f(1.0,1.0,0.0);
-	output(45,100,"INSTRUCTIONS:");
+	glClearColor(0, 0.2, 0.4, 1.0);
+	glColor3f(0.0, 1.0, 0.0);
+	output(25, 200, "WELCOME TO THE PACMAN GAME");
+	output(50, 500, "3. QUIT");
+	output(50, 400, "2. INSTRUCTIONS");
+	output(50, 300, "1. NEW GAME");
+	glFlush();
+}
+
+void instructions() {
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(1.0, 1.0, 0.0);
+	output(45, 100, "INSTRUCTIONS:");
 	glBegin(GL_LINES);
-	glVertex2f(45,138);
-	glVertex2f(90,138);
+	glVertex2f(45, 138);
+	glVertex2f(90, 138);
 	glEnd();
-	glColor3f(0,1,0);
-	output(20,200,"* The objective of the game is to catch the eggs in the basket");
-	output(20,250,"* To move Basket use mouse or A or D");
-	output(20,300,"* To Start, press key 's' or 'S'");
-	output(20,350,"* To Quit manually, press key 'q' or 'Q'");
-	output(20,400,"* RULES : If the player misses 10 eggs,then 'Game Over'.");
-	output(20,450,"* For each level, speed is Increased BEST OF LUCK");
-	output(20,500,"* Press ESC to GO BACK");
+	glColor3f(0, 1, 0);
+	output(20, 200, "* The objective of the game is to eat all of the dots");
+	output(20, 250, "* while avoiding four colored ghosts ");
+	output(20, 300, "* To move use A, W, S and D");
+	output(20, 350, "* RULES : If the ghost catches the player 'Game Over'.");
+	output(20, 400, "* Press ESC to GO BACK");
 	glFlush();
 }
 
@@ -315,14 +312,14 @@ void updateMonster(float* monster, int id) {
 
 //Method to set the pressed key
 void keyPressed(unsigned char key, int x, int y) {
-	if(df==10 && key==13) df=0;
-	else if(df==0 && key=='1'){
-	     df=1;
-	     glutPostRedisplay();
+	if (df == 10 && key == 13) df = 0;
+	else if (df == 0 && key == '1') {
+		df = 1;
+		glutPostRedisplay();
 	}
-	else if(df==0 && key=='2') df=2;
-	else if(df==0 && key=='3') df=3;
-	else if(key==27) df = 0;
+	else if (df == 0 && key == '2') df = 2;
+	else if (df == 0 && key == '3') df = 3;
+	else if (key == 27) df = 0;
 	keyStates[key] = true;
 }
 
@@ -490,12 +487,12 @@ void welcomeScreen() {
 	glRasterPos2f(150, 200);
 	while (*message)
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *message++);
-	 message = "PACMAN - by Pawan Shah and Mohd Arshad ";
+	message = "PACMAN - by Pawan Shah and Mohd Arshad ";
 	glColor3f(1, 1, 1);
 	glRasterPos2f(160, 250);
 	while (*message)
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *message++);
-	 message = "**************************************";
+	message = "**************************************";
 	glRasterPos2f(150, 300);
 	while (*message)
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *message++);
@@ -511,11 +508,11 @@ void welcomeScreen() {
 
 //Method to display the screen and its elements
 void display() {
-	if(df==10)
+	if (df == 10)
 		frontscreen();
-      	else  if(df==0)
-      		startscreen();
-        else if(df == 1){
+	else  if (df == 0)
+		startscreen();
+	else if (df == 1) {
 		if (points == 1) {
 			over = false;
 		}
@@ -544,10 +541,10 @@ void display() {
 			welcomeScreen();
 		}
 	}
-	else if(df==2)
-        	instructions();
-    	else if(df==3)
-      		exit(1);
+	else if (df == 2)
+		instructions();
+	else if (df == 3)
+		exit(1);
 	glutSwapBuffers();
 }
 
@@ -569,7 +566,7 @@ int main(int argc, char** argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutInitWindowSize(750, 750);
 	glutInitWindowPosition(500, 50);
-	glutCreateWindow("PACMAN - by Patricia Terol");
+	glutCreateWindow("PACMAN - by Arshad And Pawan");
 
 	//define all the control functions
 	glutDisplayFunc(display);
